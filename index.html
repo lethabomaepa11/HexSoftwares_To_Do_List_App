@@ -15,27 +15,17 @@
         <h2><img src="/assets/todo.png" class="logo" alt="logo"/>Simple To-do App</h2>
     </header>
     <main>
-        <form class="form flex justify-between">
+        <form onsubmit="insertItem(event)" class="form flex justify-between">
             <div class="form-field">
-                <input type="text" placeholder="Add new Item..." title="Input a new item" required/>
+                <input type="text" id="txtAdd" name="txtAdd" placeholder="Add new Item..." title="Input a new item" required/>
                 <p id="error" class="error">Cannot add an empty item!</p>
             </div>
-            <button type="submit" title="Click to add a new item">Add Item</button>
+            <button type="submit" title="Click to add a new item">Add<ion-icon name="add-circle-outline"></ion-icon></button>
         </form>
         <hr/>
         <h3>Your items</h3>
         <div id="items" class="flex">
-            <div class="item flex justify-between">
-                <div class="flex item-container">
-                    <div class="btns flex">
-                        <ion-icon class="delete" name="trash-outline"></ion-icon>
-                        <ion-icon name="create"></ion-icon>
-                    </div>
-                    <p>Validate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputs</p>
-                </div>
-                <ion-icon name="checkmark-done-circle-outline" class="notDone"></ion-icon>
-                <ion-icon name="checkmark-done-circle" class="done"></ion-icon>
-            </div>
+            
         </div>
     </main>
     <footer>

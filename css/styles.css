@@ -15,20 +15,16 @@ body, html{
     justify-content: center;
     align-items: center;
     background: linear-gradient(#eee,#fff);
+    background-repeat: no-repeat;
 }
 .logo{
     height: 50px;
     width: 50px;
 }
 main{
-    min-height: 100vh;
     max-width: 60vw;
 }
-@media only screen and (max-width: 600px) {
-    main{
-        max-width: 100vw;
-    }
-}
+
 input, button{
     all: unset;
     border-radius: 8px;
@@ -40,6 +36,12 @@ input{
     padding: 0.5rem;
     width: 100%;
 }
+@media only screen and (max-width: 600px) {
+    main{
+        max-width: 100vw;
+    }
+    
+}
 button{
     background-color: royalblue;
     color: #fff;
@@ -49,6 +51,10 @@ button{
 }
 button:active,ion-icon:active{
     transform: scale(0.9);
+}
+button:hover{
+    background-color: rgb(15, 15, 219);
+    color: #fff;
 }
 .flex{
     display: flex;
@@ -71,6 +77,24 @@ button:active,ion-icon:active{
     font-size: 11pt;
     display: none;
 }
+@keyframes itemAppear {
+    0%{
+        transform: scale(0.99);
+    }
+    25%{
+        transform: scale(0.9);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(0.95);
+    }
+    100%{
+        transform: scale(1);
+    }
+    
+}
 .item{
     cursor: default;
     background: #ddd;
@@ -78,6 +102,7 @@ button:active,ion-icon:active{
     padding: 0.6rem;
     gap: 1rem;
     transition: all 0.2s ease-in-out;
+    /*animation: itemAppear 1.5s ease-in-out;*/
 }
 .item:hover{
     transform: scale(0.992);
@@ -91,11 +116,12 @@ button:active,ion-icon:active{
 }
 .done{
     color: royalblue;
-    display: none;
 }
 #items{
     flex-direction: column;
     gap: 10px;
+    max-height: 60vh;
+    overflow: auto;
 }
 .btns{
     gap: 0.2rem;
@@ -112,4 +138,7 @@ button:active,ion-icon:active{
 }
 ion-icon{
     font-size: 28px;
+    transition: all 0.3s ease-in-out;
+    padding: 5px;
+    border-radius: 8px;
 }
