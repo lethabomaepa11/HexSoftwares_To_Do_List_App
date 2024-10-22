@@ -2,7 +2,7 @@ const itemComponent = (id,isDone,text) => {return(`<div id="${id}" class="item f
                 <div class="flex item-container">
                     <div class="btns flex">
                         <ion-icon class="delete" onclick="deleteItem('${id}')" name="trash-outline"></ion-icon>
-                        <ion-icon name="create"></ion-icon>
+                        <ion-icon name="create" onclick="updateItem('${id}')"></ion-icon>
                     </div>
                     <p>${text}</p>
                 </div>
@@ -72,9 +72,19 @@ const insertItem = (event) => {
     getItems();
     event.preventDefault();
 }
-const updateItem = (item) => {
+const updateItem = (id) => {
+    const newText = prompt("Update your item:");
+    if (newText) {
+        getAndParseItem(id, (item) => {
+            if (item) {
+                const updatedItem = { ...item, text: newText };
+                localStorage.setItem(id, JSON.stringify(updatedItem));
+                getItems();
+            }
+        });
+    }
+};
 
-}
 
 
 const toggleIsDone = (id) => {
