@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="icon" type="image/x-icon" href="/assets/todo.png">
+    <title>Simple ToDo app</title>
+</head>
+<body>
+    <header>
+        <h2><img src="/assets/todo.png" class="logo" alt="logo"/>Simple To-do App</h2>
+    </header>
+    <main>
+        <form class="form flex justify-between">
+            <div class="form-field">
+                <input type="text" placeholder="Add new Item..." title="Input a new item" required/>
+                <p id="error" class="error">Cannot add an empty item!</p>
+            </div>
+            <button type="submit" title="Click to add a new item">Add Item</button>
+        </form>
+        <hr/>
+        <h3>Your items</h3>
+        <div id="items" class="flex">
+            <div class="item flex justify-between">
+                <div class="flex item-container">
+                    <div class="btns flex">
+                        <ion-icon class="delete" name="trash-outline"></ion-icon>
+                        <ion-icon name="create"></ion-icon>
+                    </div>
+                    <p>Validate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputsValidate inputs</p>
+                </div>
+                <ion-icon name="checkmark-done-circle-outline" class="notDone"></ion-icon>
+                <ion-icon name="checkmark-done-circle" class="done"></ion-icon>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
