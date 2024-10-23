@@ -1,23 +1,26 @@
 const CACHE_NAME = 'todo-app-cache-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/css/styles.css',
-    '/js/index.js',
-    '/assets/todo.png',
-    // Add any other assets to cache
+    '/HexSoftwares_To_Do_List_App/index.html',
+    '/HexSoftwares_To_Do_List_App/css/styles.css',
+    '/HexSoftwares_To_Do_List_App/js/index.js',
+    '/HexSoftwares_To_Do_List_App/assets/todo.png',
 ];
 
 // Install the service worker
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Caching files');
-                return cache.addAll(urlsToCache);
-            })
+        caches.open(CACHE_NAME).then((cache) => {
+            return Promise.all(
+                urlsToCache.map((url) => {
+                    return cache.add(url).catch((err) => {
+                        console.error(`Failed to cache ${url}:`, err);
+                    });
+                })
+            );
+        })
     );
 });
+
 
 // Fetch event to serve cached files
 self.addEventListener('fetch', (event) => {
